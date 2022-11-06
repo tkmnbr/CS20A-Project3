@@ -105,10 +105,12 @@ List<Type>::List() :m_front(nullptr), m_rear(nullptr), m_size(0) {
 //Copy Ctor
 template<typename Type>
 List<Type>::List(const List<Type>& other) {
-
-
-	/*   TODO   */
-
+	if (other.empty()) return;
+	DLNode* other_p = other.m_front;
+	while (other_p != nullptr) {
+		push_rear(other_p->value());
+		other_p = other_p->next();
+	}
 }
 
 //Overload assignment operator

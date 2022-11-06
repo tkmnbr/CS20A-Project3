@@ -2,7 +2,7 @@
 
 
 // Choose which run to compile
-#define RUN1 //RUN1 RUN2 RUN3 
+#define RUN0 //RUN1 RUN2 RUN3 
 
 
 #ifdef RUN0
@@ -21,7 +21,17 @@ int main() {
 	l->push_front(9);
 	l->push_front(8);
 	l->push_front(42);
-	std::cout << l->at(2) << "\n";
+
+	List<int> *r = new List< int >(*l);;
+	r->print();
+	std::cout << "\n";
+	delete l;
+	r->print();
+	std::cout << "\n";
+	std::cout << r->size();
+
+
+	//std::cout << l->at(2) << "\n";
 	//l->print();
 
 	/*l->push_at(-1, 7);
@@ -54,6 +64,7 @@ int main() {
 	l->push_front("2");
 	l->print();// 2 Bob World Hello
 	std::cout << "\n";
+
 
 	std::cout << l->pop_value("World") << "\n";
 	l->print();
