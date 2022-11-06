@@ -259,16 +259,17 @@ int List<Type>::size() const {
 }
 
 //List count
-//Return the total # of the values in the list
+//Return the total # of the values in the list that match the given value.
 template<typename Type>
 int List<Type>::count(const Type &value) const {
-
-
-	/*   TODO   */
-
-	int retval = 9000000;
-	return retval;
-
+	int result = 0;
+	DLNode* p = m_front;
+	while (p != nullptr) {
+		if (p->value() == value)
+			result++;
+		p = p->next();
+	}
+	return result;
 }
 
 //List find

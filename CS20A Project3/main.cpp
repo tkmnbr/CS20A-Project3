@@ -2,7 +2,7 @@
 
 
 // Choose which run to compile
-#define RUN1 //RUN1 RUN2 RUN3 
+#define RUN0 //RUN1 RUN2 RUN3 
 
 
 #ifdef RUN0
@@ -18,11 +18,15 @@ int main() {
 	List<int> * l = new List<int>;; //List of integers
 	l->push_front(5);
 	l->push_front(7);
+	l->push_front(7);
+	l->push_front(7);
 	l->push_front(42);
-	l->print();
+	std::cout << l->count(7) << "\n";
+	//l->print();
 
-	l->push_at(-1, 10);
-	l->print();
+	l->push_at(-1, 7);
+	std::cout << l->count(7);
+	//l->print();
 
 	
 
