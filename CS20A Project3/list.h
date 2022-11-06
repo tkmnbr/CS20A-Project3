@@ -130,9 +130,12 @@ List<Type>& List<Type>::operator=(const List<Type>& other) {
 //List Dtor
 template<typename Type>
 List<Type>::~List() {
-
-
-	/*   TODO   */
+	DLNode* p = m_front;
+	while (p != nullptr) {
+		DLNode* temp = p->next();
+		delete p;
+		p = temp;
+	}
 }
 
 //List print
