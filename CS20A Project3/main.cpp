@@ -54,8 +54,8 @@ int main() {
 
 	l->print(); // 2 Bob World Hello
 
-	//l->pop_rear();  // Will trip assert if empty
-	//l->print(); // 2 Bob World 
+	l->pop_rear();  // will trip assert if empty
+	l->print(); // 2 bob world 
 
 	//std::cout << l->front() << std::endl; // 2
 

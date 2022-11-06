@@ -155,11 +155,18 @@ bool List<Type>::empty() const {
 template<typename Type>
 void List<Type>::push_front(const Type &value) {
 	DLNode* node = new DLNode;
-	if (m_front == nullptr)
+	if (m_size == 0)
+	{
+		m_front = node;
 		m_rear = node;
+		node->value(value);
+		m_size++;
+		return;
+	}
 	node->value(value);
 	node->prev(nullptr);
 	node->next(m_front);
+	node->next()->prev(node);
 	m_front = node;
 	m_size++;
 }
@@ -167,7 +174,7 @@ void List<Type>::push_front(const Type &value) {
 //List push rear
 template<typename Type>
 void List<Type>::push_rear(const Type &value) {
-	if (m_front == nullptr) {
+	if (m_size == 0) {
 		push_front(value);
 		return;
 	}
@@ -175,6 +182,7 @@ void List<Type>::push_rear(const Type &value) {
 	node->value(value);
 	node->next(nullptr);
 	node->prev(m_rear);
+	node->prev()->next(node);
 	m_rear = node;
 	m_size++;
 }
@@ -285,14 +293,23 @@ bool List<Type>::pop_front() {
 }
 
 //List pop rear
+//If the value was deleted return true, otherwise return false
 template<typename Type>
 bool List<Type>::pop_rear() {
-
-
-	/*   TODO   */
-
-	bool retval = false;
-	return retval;
+	if (m_front == nullptr)
+		return false;
+	if (m_size == 1) {
+		delete m_front;
+		m_front == nullptr;
+		m_size--;
+		return true;
+	}
+	DLNode* p = m_rear;
+	m_rear = p->prev();
+	p->prev()->next(nullptr);
+	delete p;
+	m_size--;
+	return true;
 }
 
 //List pop at
