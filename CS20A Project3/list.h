@@ -172,8 +172,7 @@ void List<Type>::push_front(const Type &value) {
 	m_size++;
 }
 
-/* List push_rear
-*/
+//List push rear
 template<typename Type>
 void List<Type>::push_rear(const Type &value) {
 
