@@ -143,12 +143,9 @@ void List<Type>::print() const {
 //List empty
 template<typename Type>
 bool List<Type>::empty() const {
-
-
-	/*   TODO   */
-	bool retval = false;
-	return retval;
-
+	if (m_size == 0)
+		return true;
+	return false;
 }
 
 //List push Front
