@@ -275,17 +275,29 @@ int List<Type>::find(const Type &value) const {
 }
 
 //List pop front
+//Remove the first node in the list.
+//If the value was deleted return true, otherwise return false.
 template<typename Type>
 bool List<Type>::pop_front() {
-
-	/*   TODO   */
-
-	bool retval = false;
-	return retval;
+	if (m_front == nullptr) return false;
+	if (m_size == 1) {
+		delete m_front;
+		m_front = nullptr;
+		m_rear = nullptr;
+		m_size--;
+		return true;
+	}
+	DLNode* p = m_front;
+	m_front = p->next();
+	p->next()->prev(nullptr);
+	delete p;
+	m_size--;
+	return true;
 }
 
 //List pop rear
-//If the value was deleted return true, otherwise return false
+//Remove the very last node in thelist.
+//If the value was deleted return true, otherwise return false.
 template<typename Type>
 bool List<Type>::pop_rear() {
 	if (m_front == nullptr)
@@ -293,6 +305,7 @@ bool List<Type>::pop_rear() {
 	if (m_size == 1) {
 		delete m_front;
 		m_front == nullptr;
+		m_rear = nullptr;
 		m_size--;
 		return true;
 	}

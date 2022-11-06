@@ -52,10 +52,12 @@ int main() {
 	l->push_front("World");
 	l->push_front("Bob");
 	l->push_front("2");
-	//l->print(); // 2 Bob World Hello
-	std::cout << l->at(2);
+	l->print(); // 2 Bob World Hello
 
-	l->push_at(-1, "Noboru");
+	l->pop_front();
+	l->print();
+
+	//l->push_at(-1, "Noboru");
 	//l->print(); // 2 bob world 
 	//std::cout << l->size();
 	return 0;
