@@ -188,8 +188,7 @@ void List<Type>::push_at(int idx, const Type &value) {
 	/*   TODO   */
 }
 
-/*  List front
-*/
+//List front
 template<typename Type>
 Type List<Type>::front() const {
 	// Force check that the m_front is pointing to a DLNode
