@@ -180,8 +180,7 @@ void List<Type>::push_rear(const Type &value) {
 	/*   TODO   */
 }
 
-/* List push_at
-*/
+//List push at
 template<typename Type>
 void List<Type>::push_at(int idx, const Type &value) {
 
