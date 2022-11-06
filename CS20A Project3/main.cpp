@@ -2,7 +2,7 @@
 
 
 // Choose which run to compile
-#define RUN0 //RUN1 RUN2 RUN3 
+#define RUN1 //RUN1 RUN2 RUN3 
 
 
 #ifdef RUN0
@@ -16,12 +16,12 @@ int main() {
 	std::cout << StudentInfo::id() << std::endl;
 
 	List<int> * l = new List<int>;; //List of integers
-	/*l->push_front(5);
+	l->push_front(5);
 	l->push_front(7);
 	l->push_front(9);
 	l->push_front(8);
-	l->push_front(42);*/
-	std::cout << l->find(42) << "\n";
+	l->push_front(42);
+	std::cout << l->at(2) << "\n";
 	//l->print();
 
 	/*l->push_at(-1, 7);
@@ -53,11 +53,11 @@ int main() {
 	l->push_front("Bob");
 	l->push_front("2");
 	//l->print(); // 2 Bob World Hello
-	std::cout << l->size();
+	std::cout << l->at(2);
 
 	l->push_at(-1, "Noboru");
 	//l->print(); // 2 bob world 
-	std::cout << l->size();
+	//std::cout << l->size();
 	return 0;
 
 }

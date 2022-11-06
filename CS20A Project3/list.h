@@ -227,19 +227,15 @@ Type List<Type>::rear() const {
 }
 
 //List at
+//Return the value of the given index.
 template<typename Type>
 Type List<Type>::at(int idx) const {
-
-	// Force index to be correct before getting the Type
-	// Typical solution for deployement code is to throw
-	// exceptions, since we haven't covered that yet
-	// we'll make due with assert, which is used for testing
 	assert(idx >= 0 && idx < m_size);
 
-	/*   TODO   */
-
-	Type retval;
-	return retval;
+	DLNode* p = m_front;
+	for (int i = 0; i < idx; i++)
+		p = p->next();
+	return(p->value());
 }
 
 //List size
