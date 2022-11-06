@@ -196,20 +196,11 @@ void List<Type>::push_at(int idx, const Type &value) {
 }
 
 //List front
+//Return the value of the first node
 template<typename Type>
 Type List<Type>::front() const {
-	// Force check that the m_front is pointing to a DLNode
-	// Typical solution for deployement code is to throw
-	// exceptions, but since we haven't covered that yet
-	// we'll make due with assert, which is used for testing
 	assert(m_front != nullptr);
-
-
-
-	/*   TODO   */
-
-	Type retval;
-	return retval;
+	return(m_front->value());
 }
 
 //List rear

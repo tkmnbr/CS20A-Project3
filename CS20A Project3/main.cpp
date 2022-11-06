@@ -57,7 +57,7 @@ int main() {
 	l->pop_rear();  // will trip assert if empty
 	l->print(); // 2 bob world 
 
-	//std::cout << l->front() << std::endl; // 2
+	std::cout << l->front() << std::endl; // 2
 
 	return 0;
 
