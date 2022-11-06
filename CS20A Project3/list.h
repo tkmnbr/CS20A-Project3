@@ -185,11 +185,29 @@ void List<Type>::push_rear(const Type &value) {
 }
 
 //List push at
+//If the index <= 0, add front.
+//If the index >= m_size, add rear.
+//Otherwise, push at the index indicated.
 template<typename Type>
 void List<Type>::push_at(int idx, const Type &value) {
-
-
-	/*   TODO   */
+	if (idx <= 0) {
+		push_front(value);
+		return;
+	}
+	if (idx >= m_size) {
+		push_rear(value);
+		return;
+	}
+	DLNode* node = new DLNode;
+	DLNode* p = m_front;
+	node->value(value);
+	for (int i = 1; i < idx; i++)
+		p = p->next();
+	node->prev(p);
+	node->next(p->next());
+	p->next()->prev(node);
+	p->next(node);
+	m_size++;
 }
 
 //List front

@@ -16,18 +16,13 @@ int main() {
 	std::cout << StudentInfo::id() << std::endl;
 
 	List<int> * l = new List<int>;; //List of integers
-
-	
-	//l->push_rear(1);
-	std::cout << l->empty();
-
-	/*l->push_front(5);
-
+	l->push_front(5);
 	l->push_front(7);
-
 	l->push_front(42);
+	l->print();
 
-	l->print();*/
+	l->push_at(-1, 10);
+	l->print();
 
 
 	return 0;
