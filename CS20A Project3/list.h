@@ -132,6 +132,7 @@ List<Type>::~List() {
 //List print
 template<typename Type>
 void List<Type>::print() const {
+	if (m_size == 0) return;
 	DLNode* curr = m_front;
 	while (curr->next() != nullptr) {
 		std::cout << curr->value() << " ";
@@ -341,14 +342,16 @@ bool List<Type>::pop_at(int idx) {
 }
 
 //List pop value
+//Remove the first occurence the value relative to the front of the list.
+//Return the index of the removed value. If the list is empty, return -3.
+//If the value is not found, return -2.
 template<typename Type>
 int List<Type>::pop_value(const Type &value) {
-
-	/*   TODO   */
-
-	int retval = 42;
-	return retval;
-
+	if (m_size == 0) return -3;
+	int retVal = find(value);
+	if (retVal == -3) return -2;
+	pop_at(retVal);
+	return retVal;
 }
 
 
