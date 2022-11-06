@@ -133,10 +133,11 @@ List<Type>::~List() {
 template<typename Type>
 void List<Type>::print() const {
 	DLNode* curr = m_front;
-	while (curr != nullptr) {
-		std::cout << curr->value();
+	while (curr->next() != nullptr) {
+		std::cout << curr->value() << " ";
 		curr = curr->next();
 	}
+	std::cout << curr->value();
 }
 
 //List empty

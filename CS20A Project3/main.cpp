@@ -2,10 +2,10 @@
 
 
 // Choose which run to compile
-#define RUN0 //RUN1 RUN2 RUN3 
+#define RUN1 //RUN1 RUN2 RUN3 
 
 
-#ifdef RUN0 
+#ifdef RUN0
 
 #include"list.h"
 #include"studentinfo.h"
@@ -54,10 +54,10 @@ int main() {
 
 	l->print(); // 2 Bob World Hello
 
-	l->pop_rear();  // Will trip assert if empty
-	l->print(); // 2 Bob World 
+	//l->pop_rear();  // Will trip assert if empty
+	//l->print(); // 2 Bob World 
 
-	std::cout << l->front() << std::endl; // 2
+	//std::cout << l->front() << std::endl; // 2
 
 	return 0;
 
