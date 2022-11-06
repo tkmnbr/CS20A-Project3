@@ -22,7 +22,8 @@ int main() {
 	l->push_front(8);
 	l->push_front(42);
 
-	List<int> *r = new List< int >(*l);;
+	List<int> *r = new List< int >;;
+	*r = *l;
 	r->print();
 	std::cout << "\n";
 	delete l;

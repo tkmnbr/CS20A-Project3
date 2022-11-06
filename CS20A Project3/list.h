@@ -116,10 +116,14 @@ List<Type>::List(const List<Type>& other) {
 //Overload assignment operator
 template<typename Type>
 List<Type>& List<Type>::operator=(const List<Type>& other) {
-
-
-	/*   TODO   */
-
+	if (this != &other) {
+		if (other.empty()) return *this;
+		DLNode* other_p = other.m_front;
+		while (other_p != nullptr) {
+			push_rear(other_p->value());
+			other_p = other_p->next();
+		}
+	}
 	return *this;
 }
 
