@@ -54,7 +54,10 @@ int main() {
 	l->push_front("2");
 	l->print(); // 2 Bob World Hello
 
-	l->pop_front();
+	l->pop_at(1);
+	l->print();
+
+	l->pop_at(1);
 	l->print();
 
 	//l->push_at(-1, "Noboru");

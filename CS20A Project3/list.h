@@ -318,15 +318,26 @@ bool List<Type>::pop_rear() {
 }
 
 //List pop at
+//Remove the value at the index of the list.
+//If the value was deleted return true, otherwise return false.
+//If the index is out of bound, do nothing n return false.
 template<typename Type>
 bool List<Type>::pop_at(int idx) {
-
-
-	/*   TODO   */
-
-	bool retval = false;
-	return retval;
-
+	if (idx < 0 or idx >= m_size) return false;
+	if (idx == 0) {
+		pop_front();
+		return true;
+	}
+	if (idx == m_size - 1) {
+		pop_rear();
+		return true;
+	}
+	DLNode* p = m_front;
+	for (int i = 0; i < idx; i++) p = p->next();
+	p->prev()->next(p->next());
+	p->next()->prev(p->prev());
+	delete p;
+	m_size--;
 }
 
 //List pop value
