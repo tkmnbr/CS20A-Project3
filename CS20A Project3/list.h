@@ -273,15 +273,18 @@ int List<Type>::count(const Type &value) const {
 }
 
 //List find
+//Search the list if the given value is curently in the list.
+//If it is, return the index of that position, otherwise return -3.
 template<typename Type>
 int List<Type>::find(const Type &value) const {
-
-	/*   TODO   */
-
-
-	int retval = 8675309;
-	return retval;
-
+	int index = 0;
+	DLNode* p = m_front;
+	while (p != nullptr) {
+		if (p->value() == value) return index;
+		p = p->next();
+		index++;
+	}
+	return -3;
 }
 
 //List pop front
