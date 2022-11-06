@@ -2,7 +2,7 @@
 
 
 // Choose which run to compile
-#define RUN0 //RUN1 RUN2 RUN3 
+#define RUN1 //RUN1 RUN2 RUN3 
 
 
 #ifdef RUN0
@@ -24,6 +24,7 @@ int main() {
 	l->push_at(-1, 10);
 	l->print();
 
+	
 
 	return 0;
 
@@ -47,14 +48,12 @@ int main() {
 	l->push_front("World");
 	l->push_front("Bob");
 	l->push_front("2");
+	//l->print(); // 2 Bob World Hello
+	std::cout << l->size();
 
-	l->print(); // 2 Bob World Hello
-
-	l->pop_rear();  // will trip assert if empty
-	l->print(); // 2 bob world 
-
-	std::cout << l->front() << std::endl; // 2
-
+	l->push_at(-1, "Noboru");
+	//l->print(); // 2 bob world 
+	std::cout << l->size();
 	return 0;
 
 }

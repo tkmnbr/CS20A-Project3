@@ -255,12 +255,7 @@ Type List<Type>::at(int idx) const {
 //Return the size of m_size
 template<typename Type>
 int List<Type>::size() const {
-
-
-	/*   TODO   */
-
-	int retval = 9000000;
-	return retval;
+	return(m_size);
 }
 
 //List count
