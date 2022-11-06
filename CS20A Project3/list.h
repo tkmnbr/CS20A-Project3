@@ -159,9 +159,7 @@ bool List<Type>::empty() const {
 
 }
 
-
-/* List push_front
-*/
+//List push Front
 template<typename Type>
 void List<Type>::push_front(const Type &value) {
 	DLNode* node = new DLNode;
