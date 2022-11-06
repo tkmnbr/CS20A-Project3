@@ -205,8 +205,7 @@ Type List<Type>::front() const {
 	return retval;
 }
 
-/* List rear
-*/
+//List rear
 template<typename Type>
 Type List<Type>::rear() const {
 
