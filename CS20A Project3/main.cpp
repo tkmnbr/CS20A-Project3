@@ -17,18 +17,14 @@ int main() {
 
 	List<int> * l = new List<int>;; //List of integers
 
-	l->push_front(5);
-	l->push_front(4);
-	l->push_front(3);
-	l->push_front(2);
-
-	/*l->push_rear(1);
+	
+	l->push_rear(1);
 
 	l->push_front(5);
 
 	l->push_front(7);
 
-	l->push_front(42);*/
+	l->push_front(42);
 
 	l->print();
 

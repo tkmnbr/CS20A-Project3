@@ -96,18 +96,13 @@ private:
 };
 
 
-
-/* List default constructor
-//		Set m_front and m_rear pointer to point to nothing, m_size is zero
-//		Already implemented, nothing to do.
-*/
+//List Ctor
 template<typename Type>
 List<Type>::List() :m_front(nullptr), m_rear(nullptr), m_size(0) {
 }
 
 
-/* Copy constructor
-*/
+//Copy Ctor
 template<typename Type>
 List<Type>::List(const List<Type>& other) {
 
@@ -115,8 +110,8 @@ List<Type>::List(const List<Type>& other) {
 	/*   TODO   */
 
 }
-/* Overloaded assignment operator
-*/
+
+//Overload assignment operator
 template<typename Type>
 List<Type>& List<Type>::operator=(const List<Type>& other) {
 
@@ -126,9 +121,7 @@ List<Type>& List<Type>::operator=(const List<Type>& other) {
 	return *this;
 }
 
-
-/* List destructor
-*/
+//List Dtor
 template<typename Type>
 List<Type>::~List() {
 
@@ -136,8 +129,7 @@ List<Type>::~List() {
 	/*   TODO   */
 }
 
-/* List print
-*/
+//List print
 template<typename Type>
 void List<Type>::print() const {
 	DLNode* curr = m_front;
@@ -147,8 +139,7 @@ void List<Type>::print() const {
 	}
 }
 
-/* List empty
-*/
+//List empty
 template<typename Type>
 bool List<Type>::empty() const {
 
@@ -175,9 +166,16 @@ void List<Type>::push_front(const Type &value) {
 //List push rear
 template<typename Type>
 void List<Type>::push_rear(const Type &value) {
-
-
-	/*   TODO   */
+	if (m_front == nullptr) {
+		push_front(value);
+		return;
+	}
+	DLNode* node = new DLNode;
+	node->value(value);
+	node->next(nullptr);
+	node->prev(m_rear);
+	m_rear = node;
+	m_size++;
 }
 
 //List push at
@@ -222,8 +220,7 @@ Type List<Type>::rear() const {
 
 }
 
-/* List at
-*/
+//List at
 template<typename Type>
 Type List<Type>::at(int idx) const {
 
@@ -239,9 +236,8 @@ Type List<Type>::at(int idx) const {
 	return retval;
 }
 
-/* List size
-//		return the m_size of the list
-*/
+//List size
+//Return the size of m_size
 template<typename Type>
 int List<Type>::size() const {
 
@@ -251,6 +247,9 @@ int List<Type>::size() const {
 	int retval = 9000000;
 	return retval;
 }
+
+//List count
+//Return the total # of the values in the list
 template<typename Type>
 int List<Type>::count(const Type &value) const {
 
@@ -261,8 +260,8 @@ int List<Type>::count(const Type &value) const {
 	return retval;
 
 }
-/* List find
-*/
+
+//List find
 template<typename Type>
 int List<Type>::find(const Type &value) const {
 
@@ -274,8 +273,7 @@ int List<Type>::find(const Type &value) const {
 
 }
 
-/* List pop_front
-*/
+//List pop front
 template<typename Type>
 bool List<Type>::pop_front() {
 
@@ -285,8 +283,7 @@ bool List<Type>::pop_front() {
 	return retval;
 }
 
-/* List pop_rear
-*/
+//List pop rear
 template<typename Type>
 bool List<Type>::pop_rear() {
 
@@ -297,8 +294,7 @@ bool List<Type>::pop_rear() {
 	return retval;
 }
 
-/* List pop_at
-*/
+//List pop at
 template<typename Type>
 bool List<Type>::pop_at(int idx) {
 
@@ -310,8 +306,7 @@ bool List<Type>::pop_at(int idx) {
 
 }
 
-/* List pop_at on value
-*/
+//List pop value
 template<typename Type>
 int List<Type>::pop_value(const Type &value) {
 
