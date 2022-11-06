@@ -21,9 +21,21 @@
     <ClInclude Include="studentinfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="debugmem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="listtests_f22.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="memorymanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="memorymanager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

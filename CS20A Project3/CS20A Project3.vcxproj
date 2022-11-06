@@ -139,11 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="debugmem.h" />
     <ClInclude Include="list.h" />
+    <ClInclude Include="listtests_f22.h" />
+    <ClInclude Include="memorymanager.h" />
     <ClInclude Include="studentinfo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="memorymanager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

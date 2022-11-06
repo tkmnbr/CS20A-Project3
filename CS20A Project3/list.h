@@ -117,6 +117,12 @@ List<Type>::List(const List<Type>& other) {
 template<typename Type>
 List<Type>& List<Type>::operator=(const List<Type>& other) {
 	if (this != &other) {
+		DLNode* p = m_front;
+		while (p != nullptr) {
+			DLNode* temp = p->next();
+			delete p;
+			p = temp;
+		}
 		if (other.empty()) return *this;
 		DLNode* other_p = other.m_front;
 		while (other_p != nullptr) {
@@ -310,11 +316,10 @@ bool List<Type>::pop_front() {
 //If the value was deleted return true, otherwise return false.
 template<typename Type>
 bool List<Type>::pop_rear() {
-	if (m_front == nullptr)
-		return false;
+	if (empty()) return false;
 	if (m_size == 1) {
 		delete m_front;
-		m_front == nullptr;
+		m_front = nullptr;
 		m_rear = nullptr;
 		m_size--;
 		return true;
@@ -348,6 +353,7 @@ bool List<Type>::pop_at(int idx) {
 	p->next()->prev(p->prev());
 	delete p;
 	m_size--;
+	return true;
 }
 
 //List pop value
