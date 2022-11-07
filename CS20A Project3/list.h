@@ -3,10 +3,6 @@
 
 #include<iostream>
 #include<assert.h>
-// Linked List object that maintains both m_front and m_rear pointers
-// and the m_size of the list.  Note that you have to keep the m_front,
-// m_rear and m_size consistent with the intended state of the List 
-// otherwise very bad things happen. 
 template<typename Type>
 class List {
 public:
@@ -26,8 +22,6 @@ public:
 	void	push_rear(const Type &value);
 	void	push_at(int idx, const Type &value);
 
-	// Note that the user must m_front ensure the list is not empty
-	// prior to calling these functions. 
 	Type	front() const;
 	Type	rear() const;
 	Type	at(int idx) const;
@@ -45,49 +39,26 @@ public:
 #ifndef MAKE_MEMBERS_PUBLIC
 private:
 #endif
-	// Forward declare the nodes for our List.
-	// Will be implemented along with list
-	// member functions
 	class DLNode;
-
-	// We'll have both m_front and m_rear points for 
-	// Fast insertion/deletion from both ends.
 	DLNode*	m_front;
 	DLNode*	m_rear;
-
-	// Keep track of number of nodes in the list
-	int		m_size;
+	int	 m_size;
 };
 
-
-/* List Implementation
-//
-//  Since List is a template class (which is not an actual
-//  class yet, not until we actually instantiate the list)
-//  we need to keep the implementation together with
-//  the definition.  There are ways to simulate having
-//  separate "implementation/definition" with templates,
-//  but they aren't necessary and can be confusing.
-*/
-
-/* DLNode definition
-//		Already implemented, nothing to do here but to use it.
-//		Make note of the fact the the member variables are private
-*/
 template<typename Type>
 class List<Type>::DLNode {
 public:
 	DLNode() :nxt(nullptr), prv(nullptr) {}
 	DLNode(Type v, DLNode* p, DLNode* n) : val(v), nxt(n), prv(p) {}
 
-	DLNode * next() const { return nxt; } // Access the address of the next node
-	void	 next(DLNode *n) { nxt = n; } // Modify the address of the next node
+	DLNode * next() const { return nxt; } 
+	void	 next(DLNode *n) { nxt = n; }
 
-	DLNode * prev() const { return prv; } // Access the address of the previous node
-	void	 prev(DLNode *p) { prv = p; } // Modify the address of the previous node
+	DLNode * prev() const { return prv; } 
+	void	 prev(DLNode *p) { prv = p; } 
 
-	Type value() const { return val; }		// Access the value stored in the current node
-	void value(const Type &v) { val = v; }	// Modify the value stored in the current node
+	Type value() const { return val; }		
+	void value(const Type &v) { val = v; }	
 
 private:
 	Type  val;
